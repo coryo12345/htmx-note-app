@@ -1,0 +1,15 @@
+package components
+
+templ Card(props CardProps, className string) {
+	<section class={ "shadow-md border rounded-md p-4 text-left bg-white", className }>
+		if props.Title != "" || props.Description != "" {
+			<div class="mb-2">
+				<h4 class="font-bold text-lg">{ props.Title }</h4>
+				<p class="text-sm text-gray-600">{ props.Description }</p>
+			</div>
+		}
+		<div>
+			{ children... }
+		</div>
+	</section>
+}

@@ -1,0 +1,43 @@
+package web
+
+import (
+	"noteapp/cmd/web/components"
+	"strconv"
+	"noteapp/internal/repositories/note"
+)
+
+templ NoteForm(notes []note.Note) {
+	@Base() {
+		@components.Card(components.CardProps{Title: "Add a Note", Description: "Create and save a new shared note"}, "max-w-[300px] mx-auto") {
+			<form hx-post="/note" method="POST" hx-target="#note-container" hx-swap="beforeend" class="flex flex-col gap-2 items-start">
+				<span>
+					<label for="value" class="pl-1">Note Value</label>
+					<textarea id="value" name="value" type="text" placeholder="Enter note information" class="border rounded px-2 py-1 w-full"></textarea>
+				</span>
+				<span>
+					<label for="author" class="pl-1">Your Name</label>
+					<input id="author" name="author" type="text" placeholder="Enter your name" class="border rounded px-2 py-1 w-full"/>
+				</span>
+				<button type="submit" class="border rounded bg-blue-600 px-2 py-1 mt-2 text-white self-end">Submit</button>
+			</form>
+		}
+		<ul id="note-container" class="flex flex-col gap-2 mt-4 items-center">
+			for _, n := range notes {
+				@NoteItem(n)
+			}
+		</ul>
+	}
+}
+
+templ NoteItem(note note.Note) {
+	<li class="note-item">
+		@components.Card(components.CardProps{}, "w-[400px]") {
+			<form hx-delete="/note" method="DELETE" hx-target="closest .note-item" hx-swap="delete">
+				<pre class="font-sans leading-4">{ note.Value }</pre>
+				<p class="text-right text-sm text-gray-600">{ note.Author }</p>
+				<input name="id" value={ strconv.Itoa(note.Id) }/>
+				<button type="submit">X</button>
+			</form>
+		}
+	</li>
+}

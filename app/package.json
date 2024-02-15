@@ -1,0 +1,19 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "One Paragraph of project description goes here",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build -o cmd/web/static/styles.css --minify",
+    "watch": "tailwindcss build -o cmd/web/static/styles.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "htmx.org": "^1.9.10"
+  }
+}
