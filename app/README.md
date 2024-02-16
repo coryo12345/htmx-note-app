@@ -4,7 +4,9 @@ A simple note app using HTMX, Go, and TEMPL. Using tailwindcss for styling. Usin
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+First, you must create create a `.env` file. Copy the `.env_example` and rename to get started. (`cp .env_example .env`).  
+
+You can run the code using the Makefile provided, see the section below for more info.
 
 ## MakeFile
 
