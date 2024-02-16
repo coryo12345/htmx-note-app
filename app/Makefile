@@ -3,18 +3,12 @@
 # Build the application
 all: build
 
-build:
+build: build-internal
 	@echo "Building..."
-	@cp ./node_modules/htmx.org/dist/htmx.min.js ./cmd/web/static/htmx.min.js
-	@templ generate
-	@npm run build
 	@go build -o main cmd/api/main.go
 
 # Run the application
-run:
-	@templ generate
-	@cp ./node_modules/htmx.org/dist/htmx.min.js ./cmd/web/static/htmx.min.js
-	@npm run build
+run: build-internal
 	@go run cmd/api/main.go
 
 # Test the application
@@ -26,6 +20,14 @@ test:
 clean:
 	@echo "Cleaning..."
 	@rm -f main
+	@rm -f ./cmd/web/static/htmx.min.js
+	@rm -f ./cmd/web/static/styles.css
+
+# required build steps
+build-internal:
+	@templ generate
+	@cp ./node_modules/htmx.org/dist/htmx.min.js ./cmd/web/static/htmx.min.js
+	@npm run build
 
 # Live Reload
 watch:
