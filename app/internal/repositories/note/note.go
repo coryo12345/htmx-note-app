@@ -11,10 +11,6 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-var (
-	dburl = os.Getenv("DB_URL")
-)
-
 type Note struct {
 	Id     int
 	Value  string
@@ -32,14 +28,7 @@ type sqliteNoteRepository struct {
 	db *sql.DB
 }
 
-func NewNoteRepository() NoteRepository {
-	db, err := sql.Open("sqlite3", dburl)
-	if err != nil {
-		// This will not be a connection error, but a DSN parse error or
-		// another initialization error.
-		log.Fatal(err)
-	}
-
+func NewNoteRepository(db *sql.DB) NoteRepository {
 	// attempt to init schema
 	data, err := os.ReadFile("internal/repositories/note/schema.sql")
 	if err != nil {
