@@ -1,1 +1,3 @@
 main
+cmd/web/static/htmx.min.js
+cmd/web/static/styles.css
