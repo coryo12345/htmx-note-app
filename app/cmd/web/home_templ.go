@@ -141,7 +141,7 @@ func NoteItem(note note.Note) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><button type=\"submit\" class=\"absolute top-0 right-0 text-red-500 border border-red-500 rounded px-1 py-0.5 text-sm\">X</button></form>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><button type=\"submit\" class=\"absolute top-0 right-0 text-red-500 border border-red-500 rounded px-1 py-0.5 text-xs font-bold\">X</button></form>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

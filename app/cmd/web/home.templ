@@ -36,7 +36,7 @@ templ NoteItem(note note.Note) {
 				<input name="id" value={ strconv.Itoa(note.Id) } hidden />
 				<pre class="font-sans leading-4">{ note.Value }</pre>
 				<p class="text-right text-sm text-gray-600 mt-4">{ note.Author }</p>
-				<button type="submit" class="absolute top-0 right-0 text-red-500 border border-red-500 rounded px-1 py-0.5 text-sm">X</button>
+				<button type="submit" class="absolute top-0 right-0 text-red-500 border border-red-500 rounded px-1 py-0.5 text-xs font-bold">X</button>
 			</form>
 		}
 	</li>
