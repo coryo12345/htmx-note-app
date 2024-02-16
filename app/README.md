@@ -4,11 +4,14 @@ A simple note app using HTMX, Go, and TEMPL. Using tailwindcss for styling. Usin
 
 ## Getting Started
 
-First, you must create create a `.env` file. Copy the `.env_example` and rename to get started. (`cp .env_example .env`).  
+First, Install templ:
+* `go install github.com/a-h/templ/cmd/templ@latest`
 
 Ensure you install dependencies
 1. Go: `go mod tidy`
 2. Node: `npm install`
+
+Finally, you must create create a `.env` file. Copy the `.env_example` and rename to get started. (`cp .env_example .env`).  
 
 You can run the code using the Makefile provided, see the section below for more info.
 
