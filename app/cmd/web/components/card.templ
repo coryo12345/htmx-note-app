@@ -1,7 +1,7 @@
 package components
 
 templ Card(props CardProps, className string) {
-	<section class={ "shadow-md border rounded-md p-4 text-left bg-white", className }>
+	<section class={ "shadow-md border rounded-md p-4 text-left bg-white", className } id={props.Id}>
 		if props.Title != "" || props.Description != "" {
 			<div class="mb-2">
 				<h4 class="font-bold text-lg">{ props.Title }</h4>

@@ -8,7 +8,7 @@ import (
 
 templ NoteForm(notes []note.Note) {
 	@Base() {
-		@components.Card(components.CardProps{Title: "Add a Note", Description: "Create and save a new shared note"}, "max-w-[300px] mx-auto") {
+		@components.Card(components.CardProps{Title: "Add a Note", Description: "Create and save a new shared note", Id: "note-form"}, "max-w-[300px] mx-auto") {
 			<form hx-post="/note" method="POST" hx-target="#note-container" hx-swap="beforeend" class="flex flex-col gap-2 items-start">
 				<span>
 					<label for="value" class="pl-1">Note Value</label>
@@ -31,12 +31,12 @@ templ NoteForm(notes []note.Note) {
 
 templ NoteItem(note note.Note) {
 	<li class="note-item">
-		@components.Card(components.CardProps{}, "w-[400px]") {
-			<form hx-delete="/note" method="DELETE" hx-target="closest .note-item" hx-swap="delete">
+		@components.Card(components.CardProps{Id: "note-item-" + strconv.Itoa(note.Id)}, "w-[400px]") {
+			<form hx-delete="/note" method="DELETE" hx-target="closest .note-item" hx-swap="delete" class="relative">
+				<input name="id" value={ strconv.Itoa(note.Id) } hidden />
 				<pre class="font-sans leading-4">{ note.Value }</pre>
-				<p class="text-right text-sm text-gray-600">{ note.Author }</p>
-				<input name="id" value={ strconv.Itoa(note.Id) }/>
-				<button type="submit">X</button>
+				<p class="text-right text-sm text-gray-600 mt-4">{ note.Author }</p>
+				<button type="submit" class="absolute top-0 right-0 text-red-500 border border-red-500 rounded px-1 py-0.5 text-sm">X</button>
 			</form>
 		}
 	</li>
