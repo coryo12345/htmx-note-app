@@ -115,14 +115,14 @@ func NoteItem(note note.Note) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hidden><pre class=\"font-sans leading-4 note-value\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hidden><pre class=\"font-sans leading-4 whitespace-pre-wrap text-wrap break-words pr-6 note-value\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(note.Value)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `cmd/web/home.templ`, Line: 36, Col: 60}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `cmd/web/home.templ`, Line: 36, Col: 107}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {

@@ -34,7 +34,7 @@ templ NoteItem(note note.Note) {
 		@components.Card(components.CardProps{Id: "note-item-" + strconv.Itoa(note.Id)}, "w-[400px]") {
 			<form hx-delete="/note" method="DELETE" hx-target="closest .note-item" hx-swap="delete" class="relative">
 				<input name="id" value={ strconv.Itoa(note.Id) } hidden />
-				<pre class="font-sans leading-4 note-value">{ note.Value }</pre>
+				<pre class="font-sans leading-4 whitespace-pre-wrap text-wrap break-words pr-6 note-value">{ note.Value }</pre>
 				<p class="text-right text-sm text-gray-600 mt-4 note-author">{ note.Author }</p>
 				<button type="submit" class="absolute top-0 right-0 text-red-500 border border-red-500 rounded px-1 py-0.5 text-xs font-bold">X</button>
 			</form>
