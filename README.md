@@ -12,6 +12,5 @@ However there are still e2e tests created for this project.
 **Quickstart**:  
 Run `cp .env_example .env && make run` in the `app/` directory to run the app.
 
-### Api Tests
-
 ### E2E Tests
+There are a couple e2e tests written using playwright, in the `e2e/` directory. They can be ran with `npm run test`. However, this assumes you have the app running (on port 8080).
